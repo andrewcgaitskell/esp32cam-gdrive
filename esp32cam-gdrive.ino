@@ -9,10 +9,12 @@
 #include "secrets.h"
 
 char ssid[] = SECRET_SSID;   // your network SSID (name) 
-char pass[] = SECRET_PASS;   // your network password
-char myScript[] = SECRET_SCRIPT;   // your network password
+char password[] = SECRET_PASS;   // your network password
+String myScript = SECRET_SCRIPT;   // your network password
 
-WiFiClient  client;
+const char* test_root_ca = SECRET_ROOT_CA;
+
+WiFiClientSecure  client;
 
 //const char* ssid     = "SSID";   //your network SSID
 //const char* password = "PASSWORD";   //your network password
@@ -64,7 +66,9 @@ void setup()
   Serial.println("");
   Serial.println("STAIP address: ");
   Serial.println(WiFi.localIP());
-    
+
+  client.setCACert(test_root_ca);
+  
   Serial.println("");
 
   camera_config_t config;
