@@ -6,10 +6,18 @@
 
 #include "esp_camera.h"
 
-const char* ssid     = "SSID";   //your network SSID
-const char* password = "PASSWORD";   //your network password
+#include "secrets.h"
+
+char ssid[] = SECRET_SSID;   // your network SSID (name) 
+char pass[] = SECRET_PASS;   // your network password
+char myScript[] = SECRET_SCRIPT;   // your network password
+
+WiFiClient  client;
+
+//const char* ssid     = "SSID";   //your network SSID
+//const char* password = "PASSWORD";   //your network password
 const char* myDomain = "script.google.com";
-String myScript = "/macros/s/XXXXXXXXXXXXXXXXXXXXXX/exec";    //Replace with your own url
+//String myScript = "/macros/s/XXXXXXXXXXXXXXXXXXXXXX/exec";    //Replace with your own url
 String myFilename = "filename=ESP32-CAM.jpg";
 String mimeType = "&mimetype=image/jpeg";
 String myImage = "&data=";
